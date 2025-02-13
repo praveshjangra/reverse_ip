@@ -2,7 +2,6 @@ replicaCount: 1
 
 image:
   repository: kufu/reverse-ip-app
-  tag: "1.16.2"
   pullPolicy: Always
 
 imagePullSecrets:
@@ -11,6 +10,7 @@ imagePullSecrets:
 service:
   type: NodePort
   port: 5000
+  nodePort: 32241
 
 mysql:
   image: mysql:8

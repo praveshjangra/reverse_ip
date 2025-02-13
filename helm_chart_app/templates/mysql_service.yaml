@@ -8,6 +8,6 @@ spec:
   ports:
     - protocol: TCP
       port: {{ .Values.mysqlService.port }}
-      targetPort: 3306
-  type: {{ .Values.service.type }}
+      targetPort: {{ .Values.mysqlService.port }}
+  type: {{ .Values.mysqlService.type }}
 
