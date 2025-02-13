@@ -9,7 +9,7 @@ imagePullSecrets:
   - name: dockerhub-secret
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 5000
 
 mysql:
