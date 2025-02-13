@@ -3,5 +3,5 @@ name: reverse-ip-app
 description: A Helm chart for deploying the Reverse IP application with MySQL
 type: application
 version: "1.16.0"
-appVersion: "1.16.4"
+appVersion: "1.16.5"
 
