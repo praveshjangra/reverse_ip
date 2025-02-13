@@ -1,0 +1,15 @@
+
+replicaCount: 1
+
+mysql:
+  image: mysql:8
+  rootPassword: "password"
+  database: "ipdb"
+  storageClassName: "standard"
+  storageSize: "1Gi"
+  hostPath: "/mnt/data"
+
+service:
+  type: ClusterIP
+  port: 3306
+
