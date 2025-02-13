@@ -41,6 +41,5 @@ jobs:
       - name: Build and push Docker image
         run: |
           IMAGE_TAG=$VERSION
-          docker buildx build --platform linux/arm64 -t $IMAGE_NAME:$IMAGE_TAG -f app/Dockerfile app/ 
-          docker push $IMAGE_NAME:$IMAGE_TAG
+          docker buildx build --platform linux/arm64 -t $IMAGE_NAME:$IMAGE_TAG -f app/Dockerfile app/  --push
           echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
