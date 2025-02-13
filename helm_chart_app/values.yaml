@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: kufu/reverse-ip-app
-  tag: "1.16.0"
+  tag: "1.16.2"
   pullPolicy: Always
 
 imagePullSecrets:
