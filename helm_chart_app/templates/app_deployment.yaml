@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reverse-ip-app
+  labels:
+    app: reverse-ip-app
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: reverse-ip-app
+  template:
+    metadata:
+      labels:
+        app: reverse-ip-app
+    spec:
+      containers:
+        - name: reverse-ip-app
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DB_HOST
+              value: "mysql"
+            - name: DB_PORT
+              value: "{{ .Values.mysqlService.port }}"
+            - name: DB_NAME
+              value: "{{ .Values.mysql.database }}"
+            - name: DB_USER
+              value: "root"
+            - name: DB_PASSWORD
+              value: "{{ .Values.mysql.rootPassword }}"
+                #     imagePullSecrets:
+                # - name: dockerhub-secret

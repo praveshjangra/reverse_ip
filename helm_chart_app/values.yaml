@@ -1,5 +1,16 @@
-
 replicaCount: 1
+
+image:
+  repository: kufu/reverse-ip-app
+  tag: "1.16.0"
+  pullPolicy: Always
+
+imagePullSecrets:
+  - name: dockerhub-secret
+
+service:
+  type: ClusterIP
+  port: 5000
 
 mysql:
   image: mysql:8
@@ -9,7 +20,10 @@ mysql:
   storageSize: "1Gi"
   hostPath: "/mnt/data"
 
-service:
+mysqlService:
   type: ClusterIP
   port: 3306
+
+ingress:
+  enabled: false  # Set to true if using an Ingress controller
 
