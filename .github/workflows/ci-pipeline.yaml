@@ -25,7 +25,7 @@ jobs:
       - name: Read application version from Chart.yaml
         id: read_version
         run: |
-          APP_VERSION=$(grep '^appVersion:' $CHART_FILE | awk '{print $2}')
+          APP_VERSION=$(grep '^appVersion:' $CHART_FILE | awk '{print $2}'| tr -d '"')
           echo "APP_VERSION=$APP_VERSION" >> $GITHUB_ENV
 
       - name: Set up Docker Buildx
